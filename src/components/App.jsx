@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout';
-import {ContactForm} from './ContactForm/ContactForm';
+import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
 
@@ -26,7 +26,7 @@ export const App = () => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  const addContact = (name, number) => {
+  const addContact = ({ name, number }) => {
     for (const contact of contacts) {
       const normalizeStateName = contact.name.toLowerCase();
       const normalizedReceivedName = name.toLowerCase();
